@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Dashboard</title>
+    <link href="dist/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  </head>
+  <body class="dark-theme min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+      <header class="flex justify-between items-center mb-8">
+        <h1 class="text-2xl font-bold text-github-blue">Finance Dashboard</h1>
+        <div class="flex items-center space-x-4">
+          <button
+            id="themeToggle"
+            class="bg-github-light px-4 py-2 rounded-md hover:bg-opacity-80"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <button
+            class="bg-github-light px-4 py-2 rounded-md hover:bg-opacity-80"
+          >
+            <i class="fas fa-bell"></i>
+          </button>
+          <button
+            class="bg-github-light px-4 py-2 rounded-md hover:bg-opacity-80"
+          >
+            <i class="fas fa-user"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Stats Cards -->
+        <div class="bg-github-gray p-6 rounded-lg">
+          <h3 class="text-gray-400 mb-2">Total Revenue</h3>
+          <p class="text-2xl font-bold">$45,231</p>
+          <p class="text-green-500 text-sm">+20.1% from last month</p>
+        </div>
+        <div class="bg-github-gray p-6 rounded-lg">
+          <h3 class="text-gray-400 mb-2">Expenses</h3>
+          <p class="text-2xl font-bold">$12,234</p>
+          <p class="text-red-500 text-sm">+2.1% from last month</p>
+        </div>
+        <div class="bg-github-gray p-6 rounded-lg">
+          <h3 class="text-gray-400 mb-2">Profit</h3>
+          <p class="text-2xl font-bold">$32,997</p>
+          <p class="text-green-500 text-sm">+15.3% from last month</p>
+        </div>
+        <div class="bg-github-gray p-6 rounded-lg">
+          <h3 class="text-gray-400 mb-2">Active Users</h3>
+          <p class="text-2xl font-bold">1,234</p>
+          <p class="text-green-500 text-sm">+4.3% from last month</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Charts -->
+        <div class="bg-github-gray p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Revenue Overview</h3>
+          <div class="relative" style="height: 300px">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
+        <div class="bg-github-gray p-6 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Expense Breakdown</h3>
+          <div class="relative" style="height: 300px">
+            <canvas id="expenseChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Transactions -->
+      <div class="mt-8">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-xl font-semibold">Recent Transactions</h3>
+          <div class="flex items-center space-x-4">
+            <div class="relative">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search transactions..."
+                class="bg-github-light px-4 py-2 rounded-md w-64 focus:outline-none focus:ring-2 focus:ring-github-blue"
+              />
+              <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+            </div>
+            <select
+              id="statusFilter"
+              class="bg-github-light px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-github-blue"
+            >
+              <option value="all">All Status</option>
+              <option value="completed">Completed</option>
+              <option value="pending">Pending</option>
+              <option value="failed">Failed</option>
+            </select>
+            <button
+              id="exportButton"
+              class="bg-github-light px-4 py-2 rounded-md hover:bg-opacity-80"
+            >
+              <i class="fas fa-download mr-2"></i>Export
+            </button>
+          </div>
+        </div>
+        <div class="bg-github-gray rounded-lg overflow-hidden">
+          <table class="w-full">
+            <thead class="bg-github-light">
+              <tr>
+                <th class="px-6 py-3 text-left">Transaction</th>
+                <th class="px-6 py-3 text-left">Amount</th>
+                <th class="px-6 py-3 text-left">Date</th>
+                <th class="px-6 py-3 text-left">Status</th>
+              </tr>
+            </thead>
+            <tbody id="transactionsTable">
+              <!-- Transactions will be populated by TypeScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="dist/main.js"></script>
+  </body>
+</html>

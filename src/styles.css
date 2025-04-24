@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f6f8fa;
+    --border-color: #d0d7de;
+    --header-bg: #24292f;
+    --header-text: #ffffff;
+    --icon-bg: #24292f;
+    --icon-color: #ffffff;
+    /* Status colors for light theme */
+    --status-success-bg: #2E7D32;
+    --status-success-text: #ffffff; 
+    --status-pending-bg: #F9A825;
+    --status-pending-text: #ffffff;
+    --status-failed-bg: #C62828;
+    --status-failed-text: #ffffff;
+}
+
+.dark-theme {
+    --bg-color: #0d1117;
+    --text-color: #ffffff;
+    --card-bg: #161b22;
+    --border-color: #21262d;
+    --header-bg: #161b22;
+    --header-text: #ffffff;
+    --icon-bg: #21262d;
+    --icon-color: #ffffff;
+    /* Status colors for dark theme */
+    --status-success-bg: rgba(35, 134, 54, 0.2);
+    --status-success-text: #56d364;
+    --status-pending-bg: rgba(187, 128, 9, 0.2);
+    --status-pending-text: #d29922;
+    --status-failed-bg: rgba(248, 81, 73, 0.2);
+    --status-failed-text: #ff7b72;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.bg-github-gray {
+    background-color: var(--card-bg);
+}
+
+.border-github-light {
+    border-color: var(--border-color);
+}
+
+/* Table header styles */
+thead.bg-github-light {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+}
+
+/* Icon button styles */
+button.bg-github-light {
+    background-color: var(--icon-bg);
+    color: var(--icon-color);
+}
+
+/* Search input and select styles */
+input.bg-github-light,
+select.bg-github-light {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+/* Status badge styles */
+.bg-green-900 {
+    background-color: var(--status-success-bg);
+}
+
+.bg-yellow-900 {
+    background-color: var(--status-pending-bg);
+}
+
+.bg-red-900 {
+    background-color: var(--status-failed-bg);
+}
+
+.text-green-300 {
+    color: var(--status-success-text);
+}
+
+.text-yellow-300 {
+    color: var(--status-pending-text);
+}
+
+.text-red-300 {
+    color: var(--status-failed-text);
+} 
