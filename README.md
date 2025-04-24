@@ -1,6 +1,7 @@
 # Finance Dashboard
 
 A beautiful finance dashboard inspired by GitHub's design, built with TypeScript and Tailwind CSS.
+https://rihanali001.github.io/Finance-Dashboard/
 
 ## Features
 
